@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block head %}
+    <div class="infobox">
+        <h1 id="intro">Welcome to &nbsp;<img src="/static/pogblog-full.png" id="home-img">, {{ username }}!</h1>
+        <p>PogBlog is a simple blogging web app I made for my CS50 Final Project. Hope you enjoy using it!</p>
+        <a href="/write"><button class="btn-custom"><span>Write a post</span></button></a>
+    </div>
+{% endblock %}
+
+{% block main %}
+    <div class="post-container">
+        <!-- For later development -->
+        <!-- <div class="post-controls">
+            <span>
+                <p>Sort posts by: &nbsp
+                    <button class="btn-custom">Newest</button>
+                    <button class="btn-custom">Oldest</button>
+                    <button class="btn-custom">Most Liked</button>
+                </p>
+            </span>
+        </div> -->
+        {% for post in posts %}
+        <div class="post">
+            <div class="post-head">
+                <h1 class="post-title">{{ post.title }}</h1>
+                <p class="post-info">Posted by: {{ post.username }} • On {{ post.time | unix_to_date }} at {{ post.time | unix_to_time }}</p>
+            </div><br>
+            <div class="post-body"><p>{{ post.content }}</p></div>
+        </div>
+        <br>
+        {% endfor %}
+    </div>
+{% endblock %}

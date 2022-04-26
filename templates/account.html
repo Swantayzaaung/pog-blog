@@ -1,0 +1,83 @@
+{% extends"layout.html" %}
+
+{% block title %}
+    Account
+{% endblock %}
+
+{% block head %}
+    <div class="acc-container">
+        <div class="user-controls">
+            <!-- Change username -->
+            <h2>Username:</h2>
+            <input class="form-custom" type="text" value="{{ username }}" disabled>
+            <button class="btn-custom submit-btn collapsible" data-toggle="collapse" data-target="#useredit">Edit</button>
+            <div id="useredit" class="collapse">
+                <form action="/account" method="post">
+                    <input class="form-custom" name="username" type="text" placeholder="New username" autocomplete="off">
+                    <br> <br>
+                    <input class="form-custom" name="confirm1" type="password" placeholder="Confirm password" autocomplete="off">
+                    <br> <br>
+                    <button class="btn-custom submit-btn" id="submit1" type="submit">Change</button>
+                </form>
+            </div>
+
+            <!-- Change password -->
+            <h2>Password:</h2>
+            <input class="form-custom" type="password" value="{{ password }}" disabled>
+            <button class="btn-custom submit-btn collapsible" type="button">Edit</button>
+            <div id="pwedit" class="collapse">
+                <form action="/account" method="post">
+                    <input name="confirm2" class="form-custom" type="password" placeholder="Confirm old password">
+                    <br> <br>
+                    <input name="password" class="form-custom" type="password" placeholder="New password">
+                    <br> <br>
+                    <button class="btn-custom submit-btn" id="submit2" type="submit">Change</button>
+                </form>
+            </div>
+        </div>
+        <script>
+            // Credit: https://www.w3schools.com/howto/howto_js_collapsible.asp
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+
+            for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight){
+                content.style.maxHeight = null;
+                } else {
+                content.style.maxHeight = content.scrollHeight +"px";
+                }
+            });
+            }
+        </script>
+    </div>
+{% endblock %}
+
+{% block main %}
+    <div class="post-container">
+        {% for post in userposts %}
+        <div class="post">
+            <div class="post-head">
+                <h2 class="post-title">{{ post.title }}</h2>
+                <p class="post-info">Posted by: {{ username }} • On {{ post.time | unix_to_date }} at {{ post.time | unix_to_time }}</p>
+            </div><br>
+            <div class="post-body"><p>{{ post.content }}</p></div>
+            <hr>
+            <div class="post-foot">
+                <!-- For later development -->
+                <!-- <form action="/edit" method="post">
+                    <input name="postid_1" type="hidden" value="{{ post.id }}">
+                    <input class="btn-custom" type="submit" value="Edit">
+                </form> -->
+                <form action="/delete" method="post">
+                    <input name="postid" type="hidden" value="{{ post.id }}">
+                    <input class="btn-custom" type="submit" value="Delete">
+                </form>
+            </div>
+        </div>
+        <br>
+        {% endfor %}
+    </div>
+{% endblock %}

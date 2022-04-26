@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Write
+{% endblock %}
+
+{% block head %}
+    <div class="infobox">
+        <h1>Write a post</h1>
+        <p>Got a wacky story from work? Or some fun facts about cats? Feel free to share them here!</p>
+    </div>
+{% endblock %}
+
+{% block main %} 
+    <form class="postbox" method="post" action="/write">
+        <div class="form-grp">
+            <input name="title" id="title-input" placeholder="Enter the title" class="form-custom post-input" autocomplete="off">
+        </div>
+        <div class="form-grp">
+            <textarea name="content" id="content-input" placeholder="What's on your mind?" class="form-custom post-input" autocomplete="off" rows="5"></textarea>
+        </div>
+        <button class="btn-custom submit-btn" id="submit" type="submit" disabled><span>Post</span></button>
+    </form>
+    <script>
+        var title = document.getElementById("title-input");
+        var content = document.getElementById("content-input");
+        var btn = document.getElementById("submit");
+        
+        title.addEventListener('keyup', checkContent);
+        content.addEventListener('keyup',checkContent);
+
+        function checkContent() {
+            if (title.value !== '' && content.value !== '') {
+                btn.disabled = false;
+            }
+            else {
+                btn.disabled = true;
+            }
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,7 @@
+-finish date and time filters :done
+-add navbar search option :done
+-finish the search function :done
+-add post filters (oldest, newest, most liked) :later
+-write the about page :tmr
+-add account options - change username, password, view my posts, edit and delete posts 
+-make the icon colors consistent :done

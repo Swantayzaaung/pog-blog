@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <img src="/static/pogblog.png" alt="PogBlog logo" class="logo-img">
+    <h2>Create an account</h2>
+    <p>If you already have an account, log in <a class="" href="/login">here</a>.</p>
+    <form action="/register" method="post">
+        <div class="form-grp">
+            <input autocomplete="off" autofocus class="form-custom" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="form-grp">
+            <input class="form-custom" name="password" placeholder="Password" type="password">
+        </div>
+        <div class="form-grp">
+            <input class="form-custom" name="confirmation" placeholder="Confirm Password" type="password">
+            </div>
+        <button class="btn-custom" type="submit"><span>Register</span></button>
+    </form>
+{% endblock %}

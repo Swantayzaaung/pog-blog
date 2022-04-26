@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    About
+{% endblock %}
+
+{% block head %}
+    <div class="infobox">
+        <h1>About Pogblog</h1>
+        <img src="/static/pogblog.png" class="logo-img" alt="pogblog logo">
+    </div>
+{% endblock %}
+{% block main %}
+    <div class="post-container">
+        <div class="post">
+            <div class="post-head">
+                <h2>What's Pogblog?</h2>
+            </div>
+            <div class="post-body">
+                <p>Pogblog is a simple (or more frankly put, rudimentary) website I made for my Final Project for the
+                CS50 Introduction to Computer Science course, an awesome, free computer science course made by Harvard.
+                As of now, I've only added the basic posting feature so that users can post their stores in a text-only
+                format, although if I have the time, I'll make sure to add more of the essential features of many blogging
+                sites, including likes, comments, saving, communities, etc. So I'm really sorry if this site feels like a 
+                complete desert right now, but I gotta submit it first, then do those extra features afterwards.</p>
+            </div>
+        </div> <br>
+        <div class="post">
+            <div class="post-head">
+                <h2>Why I created Pogblog</h2>
+            </div>
+            <div class="post-body">
+                <p>For my Final Project, I kept struggling to get an idea of what to make for it. I didn't want it to be too
+                simple, or it wouldn't be worth the course. Nor too complicated, which would end up taking way too much time
+                for my schoolwork and other stuff. At first I decided to create a memeing website, where you could search up
+                meme templates and edit image macros and memes. But when I actually started with the job, I found out that 
+                endlessly looking for meme template APIs and creating a raster graphics editor was nigh impossible to finish
+                within a short time. Soon, I gave up with that, then went for an alien shooter game using Pygame, which went
+                pretty well in my opinion, but would still take too long. <br> <br>
+                So finally, I decided to just go a simpler route - creating a blogging site. It was sufficiently complex 
+                , with the tiny details such as layouts and data validation taking some time to figure out, but not too
+                large and complicated to the point it'd take months for me to develop. Still, I ended up taking about two
+                weeks just to finish this skeleton of a website.</p>
+            </div>
+        </div> <br>
+        <div class="post">
+            <div class="post-head">
+                <h2>Technologies used here</h2>
+            </div>
+            <div class="post-body">
+                <p>Another reason I went for this kinda project is that it applies the concepts and technologies taught at CS50.
+                Poglog is a Flask based web application, using the Flask library in Python for the application, in conjunction
+                with a SQLite3 database for storing user and post data, and HTML, CSS and JavaScript for the frontend templates.
+                Working on this project helped me deepen my understanding of the various components of Flask and SQL, as well 
+                as learning to use data validation in JavaScript, something I've never tried before. Admittedly, I took way 
+                longer than I expected on the layout part, often taking hours to get some simple divs to display side by side.
+                Don't get me started on the navbar part either, or the endless battle for font sizes and paddings with 
+                Bossy Ol' Bootstrap (which I later decided to not use in favour of a custom navbar style).</p>
+                <img src="/static/2022-04-23_17-16.png">
+            </div>
+        </div> <br>
+        <div class="post">
+            <div class="post-head">
+                <h2>Credits and Attributions</h2>
+            </div>
+            <div class="post-body">
+                <p>Lots of thanks to:</p>
+                <ul type="circle">
+                    <li>David Malan, Brian Yu, Doug Lloyd and other CS50 staff for making this awesome course</li>
+                    <li>The CS50 communities on Discord and Reddit for helping me with the psets</li>
+                    <li>Stackoverflow and W3Schools for giving different solutions on specific issues</li>
+                    <li>Tr Lynn Wei Nyane for introducing me to this course on edX</li>
+                    <li>My friend Amara Zin for helping me out with my website design</li>
+                </ul>
+                <p>Image attributions:</p>
+                <ul type="circle">
+                    <li>Pog face: <span class="attr">https://streammentor.com/wp-content/uploads/2020/12/pogchamp-twitch-own3d.png</span></li>
+                    <li>HTML logo: <span class="attr">https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1200px-HTML5_logo_and_wordmark.svg.png</span></li>
+                    <li>CSS logo: <span class="attr">https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png</span></li>
+                    <li>JavaScript logo: <span class="attr">https://www.jalalmhz.ir/wp-content/uploads</span></li>
+                    <li>Flask logo: <span class="attr">https://miro.medium.com/max/800/1*Q5EUk28Xc3iCDoMSkrd1_w.png</span></li>
+                    <li>Python logo: <span class="attr">https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/800px-Python-logo-notext.svg.png</span></li>
+                    <li>SQLite logo: <span class="attr">https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Sqlite-square-icon.svg/2048px-Sqlite-square-icon.svg.png</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

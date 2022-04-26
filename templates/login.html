@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <img src="/static/pogblog.png" alt="PogBlog logo" class="logo-img">
+    <h2>Log in to PogBlog</h2>
+    <p>If you haven't already logged in yet, create an account <a class="" href="/register">here</a>.</p>
+    <form action="/login" method="post">
+        <div class="form-grp">
+            <input autocomplete="off" autofocus class="form-custom " name="username" placeholder="Username" type="text">
+        </div>
+        <div class="form-grp">
+            <input class="form-custom" name="password" placeholder="Password" type="password">
+        </div>
+        <button class="btn-custom submit-btn" type="submit"><span>Log In</span></button>
+    </form>
+{% endblock %}

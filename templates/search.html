@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block head %}
+    <div class="infobox">
+        <h1>{{ count }} posts containing "{{ term }}":</h1>
+    </div>
+{% endblock %}
+
+{% block main %}    
+<div class="post-container">
+    {% for post in posts %}
+    <div class="post">
+        <div class="post-head">
+            <h1 class="post-title">{{ post.title }}</h1>
+            <p class="post-info">Posted by: {{ post.username }} • On {{ post.time | unix_to_date }} at {{ post.time | unix_to_time }}</p>
+        </div><br>
+        <div class="post-body"><p>{{ post.content }}</p></div>
+    </div>
+    <br>
+    {% endfor %}
+{% endblock %}
